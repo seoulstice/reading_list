@@ -15,7 +15,8 @@ RSpec.describe "User registration form" do
 
     new_user = User.last
 
-    # expect(page).to have_content("Signed in as #{new_user.username}")
     expect(current_path).to eq(root_path)
+    expect(page).to have_content("Signed in as #{new_user.username}")
+    expect(page).to have_link "Log Out"
   end
 end

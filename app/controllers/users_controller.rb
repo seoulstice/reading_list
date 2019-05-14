@@ -5,11 +5,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create(user_params)
-    if user.save
-      log_in(user)
+    @user = User.create(user_params)
+    if @user.save
+      log_in(@user)
       redirect_to root_path
     else
+      flash.now[:alert] = "Sorry, an account with that username already exists."
       render :new
     end
   end
