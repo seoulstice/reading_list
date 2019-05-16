@@ -43,6 +43,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'simplecov'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'draper'
 end
 
 group :development do
