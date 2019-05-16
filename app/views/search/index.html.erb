@@ -1,0 +1,16 @@
+<%= params[:days] %>
+<%= @articles.count %>
+<table>
+  <% @articles.each do |article| %>
+  <tr>
+    <td><%= image_tag article.photo %></td>
+    <td><%= link_to article.title, article.url, target: "_blank" %><br>
+    <%= article.abstract %>
+    </td>
+    <td><%= article.authors %></td>
+    <td><%= article.section %></td>
+    <td><%= article.published_date %></td>
+  </tr>
+  <% end %>
+
+</table>
