@@ -2,9 +2,11 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show] do
+    resources :saved_articles, only: [:new, :create, :index, :destroy]
+  end
 
-  get '/search', to: 'search#index'
+  get '/popular', to: 'search#popular'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
