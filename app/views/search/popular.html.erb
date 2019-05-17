@@ -1,0 +1,31 @@
+<%= params[:days] %>
+<%= @articles.count %>
+<table>
+  <% @articles.each_with_index do |article, index| %>
+  <tr id="article_<%= index %>">
+    <% if logged_in? %>
+      <td>
+        <%= form_for @saved_article, url: user_saved_articles_path(current_user), html: {method: :post} do |f|%>
+          <%= f.hidden_field :abstract, value: article.abstract %>
+          <%= f.hidden_field :authors, value: article.authors%>
+          <%= f.hidden_field :nyt_id, value: article.nyt_id%>
+          <%= f.hidden_field :photo, value: article.photo %>
+          <%= f.hidden_field :published_date, value: article.published_date %>
+          <%= f.hidden_field :section, value: article.section %>
+          <%= f.hidden_field :title, value: article.title%>
+          <%= f.hidden_field :url, value: article.url %>
+          <%= f.submit "Save"%>
+        <% end %>
+      </td>
+    <% end %>
+    <td><%= image_tag article.photo %></td>
+    <td><%= link_to article.title, article.url, target: "_blank" %><br>
+    <%= article.abstract %>
+    </td>
+    <td><%= article.authors %></td>
+    <td><%= article.section %></td>
+    <td><%= article.published_date %></td>
+  </tr>
+  <% end %>
+
+</table>
