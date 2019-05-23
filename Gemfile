@@ -44,6 +44,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'draper'
+  gem 'database_cleaner'
 end
 
 group :development do
