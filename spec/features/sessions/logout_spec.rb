@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "User logout" do
   it "logout as a registered User" do
-    user = User.create!(username: "hungryhippo", password: "test")
+    user = create(:user)
 
     visit root_path
     click_link "Log In"
