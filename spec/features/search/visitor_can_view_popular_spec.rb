@@ -11,7 +11,8 @@ RSpec.describe 'Articles Search' do
       click_on "Submit"
 
       expect(current_path).to eq(popular_path)
-      expect(page).to have_content("20")
+      expect(page).to have_css("table#popular tr", count: 20)
+      expect(page).to_not have_css("table#popular tr", count: 10)
     end
   end
 end
