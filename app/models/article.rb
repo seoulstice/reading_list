@@ -1,5 +1,6 @@
 class Article
-  attr_reader :url,
+  attr_reader :nyt_id,
+              :url,
               :title,
               :byline,
               :abstract,
@@ -8,6 +9,7 @@ class Article
               :photo
 
   def initialize(attributes = {})
+    @nyt_id = attributes[:id]
     @url = attributes[:url]
     @title = attributes[:title]
     @byline = attributes[:byline]
