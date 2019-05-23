@@ -9,6 +9,21 @@
   </head>
 
   <body>
+    <nav>
+      <% if !logged_in? %>
+        <%= link_to "Register", new_user_path %>
+
+        <%= link_to "Log In", login_path %>
+      <% end %>
+
+      <% if logged_in? %>
+        <%= link_to "Log Out", logout_path %>
+        <p>
+        Signed in as <%= current_user.username %>
+        </p>
+      <% end %>
+    </nav>
+
     <% flash.each do |key, value| %>
      <div class="alert alert-<%= key %>"><%= value %></div>
    <% end %>
