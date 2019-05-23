@@ -23,5 +23,5 @@ end
   end
 
   def saved_article_params
-    params.require(:saved_article).permit(:abstract, :byline, :nyt_id, :photo, :published_date, :section, :title, :url)
+    params.require(:saved_article).permit(:abstract, :authors, :nyt_id, :photo, :published_date, :section, :title, :url)
   end
