@@ -17,6 +17,8 @@ RSpec.describe 'Registered User' do
       end
 
       expect(current_path).to eq(user_saved_articles_path(user))
+      expect(page).to have_css("table#saved tr", count: 1)
+      expect(page).to_not have_css("table#saved tr", count: 5)
     end
   end
 end
