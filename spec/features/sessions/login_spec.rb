@@ -5,14 +5,14 @@ RSpec.describe "User login form" do
   user = User.create!(username: "hungryhippo", password: "test")
 
   visit root_path
-
-  click_on "Log In"
+# save_and_open_page
+  click_link "Log In"
 
   expect(current_path).to eq(login_path)
 
   fill_in "username", with: user.username
   fill_in "password", with: user.password
-  click_on "Log In"
+  click_button "Log In"
 
   expect(current_path).to eq(root_path)
   expect(page).to have_content("Signed in as #{user.username}")
