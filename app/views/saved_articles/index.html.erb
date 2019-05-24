@@ -1,1 +1,14 @@
 <%= current_user.saved_articles.count %>
+<table id="saved">
+  <% @saved_articles.each do |saved_article| %>
+  <tr>
+    <td><%= image_tag saved_article.photo %></td>
+    <td><%= link_to saved_article.title, saved_article.url, target: "_blank" %><br>
+    <%= saved_article.abstract %></td>
+    <td><%= saved_article.authors %></td>
+    <td><%= saved_article.section %></td>
+    <td><%= saved_article.published_date %></td>
+    <td><%= button_to "Delete", user_saved_article_path(current_user, saved_article), method: :delete %></td>
+  </tr>
+  <% end %>
+</table>
