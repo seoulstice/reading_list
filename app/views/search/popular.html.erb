@@ -5,7 +5,7 @@
   <tr id="article_<%= index %>">
     <% if logged_in? %>
       <td>
-        <%= form_for [current_user, @saved_article], url: user_saved_articles_path(current_user), html: {method: :post} do |f|%>
+        <%= form_for [current_user, @saved_article], url: user_saved_articles_path(current_user), html: {method: :update} do |f|%>
           <%= f.hidden_field :abstract, value: article.abstract %>
           <%= f.hidden_field :authors, value: article.authors%>
           <%= f.hidden_field :nyt_id, value: article.nyt_id%>
@@ -15,7 +15,6 @@
           <%= f.hidden_field :title, value: article.title%>
           <%= f.hidden_field :url, value: article.url %>
           <%= f.submit "Save"%>
-
         <% end %>
       </td>
     <% end %>
