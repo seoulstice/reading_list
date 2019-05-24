@@ -11,7 +11,7 @@ RSpec.describe "Registered User" do
 
     expect(page).to have_css("table#saved tr", count: 2)
 
-    click_link "Delete", match: :first
+    click_button "Delete", match: :first
 
     expect(current_path).to eq(user_saved_articles_path(user))
     expect(page).to have_css("table#saved tr", count: 1)

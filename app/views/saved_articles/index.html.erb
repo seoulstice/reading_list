@@ -8,7 +8,7 @@
     <td><%= saved_article.authors %></td>
     <td><%= saved_article.section %></td>
     <td><%= saved_article.published_date %></td>
-    <td><%= link_to "Delete", user_saved_article_path(current_user, saved_article), method: :delete %></td>
+    <td><%= button_to "Delete", user_saved_article_path(current_user, saved_article), method: :delete %></td>
   </tr>
   <% end %>
 </table>
