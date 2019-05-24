@@ -7,6 +7,7 @@ FactoryBot.define do
     published_date {"date"}
     section {"section"}
     sequence(:title) {|n| "title_#{n}" }
+    read {false}
     url {"www.url.com"}
   end
 end
