@@ -9,11 +9,11 @@ RSpec.describe "Registered User" do
 
     visit user_saved_articles_path(user)
 
-    expect(page).to have_css("table#saved tr", count: 2)
+    expect(page).to have_css("table#unread tr", count: 2)
 
     click_button "Delete", match: :first
 
     expect(current_path).to eq(user_saved_articles_path(user))
-    expect(page).to have_css("table#saved tr", count: 1)
+    expect(page).to have_css("table#unread tr", count: 1)
   end
 end
