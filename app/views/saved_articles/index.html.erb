@@ -1,14 +1,40 @@
 <%= current_user.saved_articles.count %>
-<table id="saved">
-  <% @saved_articles.each do |saved_article| %>
+<table id="unread">
+  <% @unread_saved_articles.each do |unread_saved_article| %>
   <tr>
-    <td><%= image_tag saved_article.photo %></td>
-    <td><%= link_to saved_article.title, saved_article.url, target: "_blank" %><br>
-    <%= saved_article.abstract %></td>
-    <td><%= saved_article.authors %></td>
-    <td><%= saved_article.section %></td>
-    <td><%= saved_article.published_date %></td>
-    <td><%= button_to "Delete", user_saved_article_path(current_user, saved_article), method: :delete %></td>
+    <td><%= image_tag unread_saved_article.photo %></td>
+    <td><%= link_to unread_saved_article.title, unread_saved_article.url, target: "_blank" %><br>
+    <%= unread_saved_article.abstract %></td>
+    <td><%= unread_saved_article.authors %></td>
+    <td><%= unread_saved_article.section %></td>
+    <td><%= unread_saved_article.published_date %></td>
+    <td>
+      <%= form_for [current_user, unread_saved_article], url: user_saved_article_path(current_user, unread_saved_article), html: {method: :patch} do |f|   %>
+        <%= f.hidden_field :read, value: true %>
+        <%= f.submit "Mark as Read" %>
+      <% end %>
+    </td>
+    <td><%= button_to "Delete", user_saved_article_path(current_user, unread_saved_article), method: :delete %></td>
+  </tr>
+  <% end %>
+</table>
+-------------
+<table id="read">
+  <% @read_saved_articles.each do |read_saved_article| %>
+  <tr>
+    <td><%= image_tag read_saved_article.photo %></td>
+    <td><%= link_to read_saved_article.title, read_saved_article.url, target: "_blank" %><br>
+    <%= read_saved_article.abstract %></td>
+    <td><%= read_saved_article.authors %></td>
+    <td><%= read_saved_article.section %></td>
+    <td><%= read_saved_article.published_date %></td>
+    <td>
+      <%= form_for [current_user, read_saved_article], url: user_saved_article_path(current_user, read_saved_article), html: {method: :patch} do |f|   %>
+        <%= f.hidden_field :read, value: false %>
+        <%= f.submit "Mark as Unread" %>
+      <% end %>
+    </td>
+    <td><%= button_to "Delete", user_saved_article_path(current_user, read_saved_article), method: :delete %></td>
   </tr>
   <% end %>
 </table>
