@@ -7,8 +7,10 @@ RSpec.describe 'Visitor Popular Articles Search' do
 
       expect(page).to have_select(:days, options: ['One', 'Seven', 'Thirty'])
 
-      select "Seven", from: :days
-      click_on "Submit"
+      within(:css, "div#popular_select") do
+        select "Seven", from: :days
+        click_on "Submit"
+      end
 
       expect(current_path).to eq(popular_path)
       expect(page).to have_css("table#popular tr", count: 20)

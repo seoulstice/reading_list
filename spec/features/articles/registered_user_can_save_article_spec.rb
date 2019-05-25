@@ -7,8 +7,10 @@ RSpec.describe 'Registered User' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit root_path
-      select "Seven", from: :days
-      click_on "Submit"
+      within(:css, "div#popular_select") do
+        select "Seven", from: :days
+        click_on "Submit"
+      end
 
       expect(current_path).to eq(popular_path)
 

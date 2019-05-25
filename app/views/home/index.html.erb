@@ -1,6 +1,13 @@
 
-
-<%= form_tag popular_path, method: :get do %>
+<div id="popular_select">
+  <%= form_tag popular_path, method: :get do %>
   <%= select_tag :days, options_for_select(day_choices) %>
   <%= submit_tag "Submit" %>
-<% end %>
+  <% end %>
+</div>
+<div id="top_select">
+  <%= form_tag top_path, method: :get do %>
+  <%= select_tag :section, options_for_select(section_choices) %>
+  <%= submit_tag "Submit" %>
+  <% end %>
+</div>
