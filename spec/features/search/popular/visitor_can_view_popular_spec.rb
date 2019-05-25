@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe 'Articles Search' do
-  it 'allows any User to look for NYT articles' do
+RSpec.describe 'Visitor Popular Articles Search' do
+  it 'allows any User to look for popular NYT articles' do
     VCR.use_cassette("features/search/popular_spec") do
       visit root_path
 
