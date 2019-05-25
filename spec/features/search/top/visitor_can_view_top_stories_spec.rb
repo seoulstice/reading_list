@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Visitor Top Articles Search" do
   it "allows any User to look for top NYT articles" do
-    VCR.use_cassette("features/search/top_spec") do
+    VCR.use_cassette("features/search/visitor_top_spec") do
       visit root_path
 
       expect(page).to have_select(:section, options: ['Arts',

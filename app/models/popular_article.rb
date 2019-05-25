@@ -8,7 +8,7 @@ class PopularArticle
               :published_date,
               :photo
 
-  def initialize(attributes = {})
+  def initialize(attributes)
     @nyt_id = attributes[:id]
     @url = attributes[:url]
     @title = attributes[:title]
