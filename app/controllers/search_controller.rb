@@ -6,7 +6,9 @@ class SearchController < ApplicationController
     @articles = ArticleDecorator.decorate_collection(articles)
   end
 
+
   def top
+    @saved_article = SavedArticle.new
     articles = TopArticle.find_top(params[:section])
     @articles = ArticleDecorator.decorate_collection(articles)
   end
