@@ -13,7 +13,6 @@
         <%= form_for [current_user, @saved_article], url: user_saved_articles_path(current_user), html: {method: :update} do |f|%>
           <%= f.hidden_field :abstract, value: article.abstract %>
           <%= f.hidden_field :authors, value: article.authors%>
-          <%= f.hidden_field :nyt_id, value: article.nyt_id%>
           <%= f.hidden_field :photo, value: article.photo %>
           <%= f.hidden_field :published_date, value: article.published_date %>
           <%= f.hidden_field :section, value: article.section %>

@@ -1,6 +1,5 @@
 class PopularArticle
-  attr_reader :nyt_id,
-              :url,
+  attr_reader :url,
               :title,
               :byline,
               :abstract,
@@ -9,7 +8,6 @@ class PopularArticle
               :photo
 
   def initialize(attributes)
-    @nyt_id = attributes[:id]
     @url = attributes[:url]
     @title = attributes[:title]
     @byline = attributes[:byline]
