@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   get '/popular', to: 'search#popular'
+  get '/top', to: 'search#top'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
