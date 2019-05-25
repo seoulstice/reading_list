@@ -1,4 +1,4 @@
-class Article
+class TopArticle
   attr_reader :nyt_id,
               :url,
               :title,
@@ -16,12 +16,12 @@ class Article
     @abstract = attributes[:abstract]
     @section = attributes[:section]
     @published_date = attributes[:published_date]
-    @photo = attributes[:media][0][:"media-metadata"][1][:url]
+    @photo = attributes[:multimedia][3][:url]
   end
 
-  def self.find_all(days)
-    NytService.get_articles(days).map do |raw_article|
-      Article.new(raw_article)
+  def self.find_top(section)
+    NytService.get_top_articles(section).map do |raw_article|
+      TopArticle.new(raw_article)
     end
   end
 
