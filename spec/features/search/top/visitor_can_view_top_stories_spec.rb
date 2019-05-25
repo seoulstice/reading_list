@@ -31,14 +31,12 @@ RSpec.describe "Visitor Top Articles Search" do
                                                       'Travel',
                                                       'Upshot',
                                                       'World'])
-
-
-        select "Food", from: :section
-        click_on "Submit"
+        within(:css, "div#top_select") do
+          select "Theater", from: :section
+          click_on "Submit"
+        end
 
         expect(current_path).to eq(top_path)
-        expect(page).to have_css("table#top tr", count: 20)
-        expect(page).to_not have_css("table#popular tr", count: 10)
         expect(page).to have_css("tr#article_0") do
           without_tag("a", text: "Save")
         end
