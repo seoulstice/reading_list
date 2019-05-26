@@ -128,9 +128,6 @@ GEM
     rack (2.0.7)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-    rack_session_access (0.2.0)
-      builder (>= 2.0.0)
-      rack (>= 1.0.0)
     rails (5.1.7)
       actioncable (= 5.1.7)
       actionmailer (= 5.1.7)
@@ -248,7 +245,6 @@ DEPENDENCIES
   pry
   pry-rails
   puma (~> 3.7)
-  rack_session_access
   rails (~> 5.1.7)
   rspec-rails
   sass-rails (~> 5.0)
