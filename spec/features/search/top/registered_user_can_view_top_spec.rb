@@ -4,7 +4,7 @@ RSpec.describe "Registered User Top Articles Search" do
   it "allows a Registered User to look for top articles" do
     VCR.use_cassette("features/search/registered_top_spec") do
       user = create(:user)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      page.set_rack_session(user_id: user.id)
 
       visit root_path
       within(:css, "div#top_select") do

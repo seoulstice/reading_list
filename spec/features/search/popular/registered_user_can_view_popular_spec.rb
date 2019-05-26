@@ -4,7 +4,7 @@ RSpec.describe 'Articles Search' do
   it 'allows any User to look for NYT articles' do
     VCR.use_cassette("features/search/popular_spec") do
       user = create(:user)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      page.set_rack_session(user_id: user.id)
 
       visit root_path
 

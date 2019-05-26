@@ -4,11 +4,11 @@ RSpec.describe "Registered User" do
   describe "can navigate to their saved_articles#index" do
     it "and can mark articles as read" do
       user = create(:user)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       create(:saved_article, user: user)
       create(:saved_article, user: user)
+      page.set_rack_session(user_id: user.id)
 
-      visit user_saved_articles_path(user)
+      visit root_path
 
       expect(page).to have_css("table#unread tr", count: 2)
 
