@@ -4,11 +4,13 @@ RSpec.describe 'Registered User' do
   it 'can search for popular articles and save them' do
     VCR.use_cassette("features/articles") do
       user = create(:user)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      page.set_rack_session(user_id: user.id)
 
       visit root_path
-      select "Seven", from: :days
-      click_on "Submit"
+      within(:css, "div#popular_select") do
+        select "Seven", from: :days
+        click_on "Submit"
+      end
 
       expect(current_path).to eq(popular_path)
 
@@ -16,7 +18,7 @@ RSpec.describe 'Registered User' do
         click_on "Save"
       end
 
-      expect(current_path).to eq(user_saved_articles_path(user))
+      expect(current_path).to eq(root_path)
       expect(page).to have_css("table#unread tr", count: 1)
       expect(page).to_not have_css("table#unread tr", count: 5)
     end
