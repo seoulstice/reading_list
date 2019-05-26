@@ -15,7 +15,7 @@ class TopArticle
     @section = attributes[:section]
     @published_date = attributes[:published_date]
     if attributes[:multimedia].empty?
-      @photo = "https://static01.nyt.com/images/2019/06/12/arts/12thrones-3/12thrones-3-mediumThreeByTwo210-v3.jpg"
+      @photo = "/assets/blank.png"
     else
       @photo = attributes[:multimedia][3][:url]
     end
@@ -23,7 +23,6 @@ class TopArticle
 
   def self.find_top(section)
     NytService.get_top_articles(section).map do |raw_article|
-      # binding.pry
       TopArticle.new(raw_article)
     end
   end

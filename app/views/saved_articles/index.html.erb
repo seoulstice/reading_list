@@ -1,4 +1,9 @@
-
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Reading List</li>
+  </ol>
+</nav>
 
 <% if logged_in? %>
   <table id="unread">
@@ -20,7 +25,6 @@
     </tr>
     <% end %>
   </table>
-  -------------
   <table id="read">
     <% @read_saved_articles.each do |read_saved_article| %>
     <tr>
