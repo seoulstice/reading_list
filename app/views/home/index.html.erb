@@ -1,17 +1,19 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">Home</li>
-  </ol>
-</nav>
-<div id="popular_select">
-  <%= form_tag popular_path, method: :get do %>
-  <%= select_tag :days, options_for_select(day_choices) %>
-  <%= submit_tag "Submit" %>
-  <% end %>
-</div>
-<div id="top_select">
-  <%= form_tag top_path, method: :get do %>
-  <%= select_tag :section, options_for_select(section_choices) %>
-  <%= submit_tag "Submit" %>
-  <% end %>
-</div>
+<body class="form-page">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Home</li>
+    </ol>
+  </nav>
+  <div id="popular_select">
+    <%= form_tag popular_path, method: :get do %>
+    <%= select_tag :days, options_for_select(day_choices) %>
+    <%= submit_tag "Submit" %>
+    <% end %>
+  </div>
+  <div id="top_select">
+    <%= form_tag top_path, method: :get do %>
+    <%= select_tag :section, options_for_select(section_choices) %>
+    <%= submit_tag "Submit" %>
+    <% end %>
+  </div>
+</body>

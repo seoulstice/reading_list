@@ -1,4 +1,5 @@
-<%= form_tag login_path do %>
+<body class="form-page">
+  <%= form_tag login_path do %>
   <div class="form-group">
     <%= label_tag :username %>
     <%= text_field_tag :username, "", class:"form-control", "aria-describedby": "username field", placeholder: "Enter Username" %>
@@ -8,4 +9,5 @@
     <%= password_field_tag :password, "", class: "form-control", "aria-describedby": "password field", placeholder: "Password" %>
   </div>
   <%= submit_tag "Log In", class: "btn btn-primary" %>
-<% end %>
+  <% end %>
+</body>
