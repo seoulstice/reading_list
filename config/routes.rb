@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "home#index"
 
   resources :users, only: [:new, :create] do
-    resources :saved_articles, only: [:new, :create, :destroy, :update]
+    resources :saved_articles, only: [:new, :create, :destroy, :update, :index]
   end
 
   get '/popular', to: 'search#popular'

@@ -7,9 +7,8 @@ RSpec.describe "Registered User" do
     saved_article_1 = create(:saved_article, user: user1)
     saved_article_2 = create(:saved_article, user: user1)
     saved_article_3 = create(:saved_article, user: user2)
-    page.set_rack_session(user_id: user1.id)
-
-    visit root_path
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
+    visit user_saved_articles_path(user1)
 
     expect(page).to have_link(saved_article_1.title)
     expect(page).to have_link(saved_article_2.title)
