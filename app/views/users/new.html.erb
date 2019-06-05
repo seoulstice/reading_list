@@ -1,17 +1,32 @@
-<body class="form-page">
-  <%= form_for @user do |f| %>
-  <div class="form-group">
-    <%= f.label :username %>
-    <%= f.text_field :username, class:"form-control", "aria-describedby": "username field", placeholder: "Password" %>
+<div class="">
+  <nav class="" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Register</li>
+    </ol>
+
+  </nav>
+  <div class="card">
+    <div class="">
+      REGISTER
+    </div>
+    <div class="form-group">
+      <%= form_for @user do |f| %>
+        <div class="">
+          <%= f.label :username %>
+          <%= f.text_field :username, class:"form-control", "aria-describedby": "username field", placeholder: "Jane Doe" %>
+          <%= f.label :password %>
+          <%= f.password_field :password, class: "form-control", "aria-describedby": "password field", placeholder: "Password" %>
+          <%= f.label :password_confirmation, "Password Confirmation"%>
+          <%= f.password_field :password_confirmation, required: true, class: "form-control", "aria-describedby": "password confirmation field", placeholder: "Password Confirmation" %>
+        </div>
+        <div class="">
+          <%= f.submit "Register", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+      <div class="">
+        <p>Already have an account? <%= link_to "Login", login_path %> here</p>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, class: "form-control", "aria-describedby": "password field", placeholder: "Password" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, required: true, class: "form-control", "aria-describedby": "password confirmation field", placeholder: "Password Confirmation" %>
-  </div>
-  <%= f.submit "Register", class: "btn btn-primary" %>
-  <% end %>
-</body>
+</div>

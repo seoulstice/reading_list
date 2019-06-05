@@ -3,8 +3,8 @@ class SavedArticlesController < ApplicationController
 
   def index
     if logged_in?
-      @unread_saved_articles = @user.saved_articles.where(read: false)
-      @read_saved_articles = @user.saved_articles.where(read: true)
+      @unread_saved_articles = SavedArticleDecorator.decorate_collection(@user.saved_articles.where(read: false))
+      @read_saved_articles = SavedArticleDecorator.decorate_collection(@user.saved_articles.where(read: true))
     end
   end
 

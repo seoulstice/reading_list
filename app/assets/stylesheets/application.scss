@@ -13,10 +13,19 @@
  *= require_tree .
  *= require_self
  */
-
- body.form-page {
-   background-image: url('amador-loureiro-779-unsplash');
-   background-size: cover;
-   background-repeat: no-repeat;
-   height: 100%;
+ @font-face {
+   font-family: chomskyRegular;
+   src: url(chomsky.otf);
  }
+
+
+body {
+  // background-image: url('amador-loureiro-779-unsplash');
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
+}
+
+html {
+  height: 100%;
+}

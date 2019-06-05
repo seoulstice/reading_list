@@ -1,37 +1,38 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Most Viewed Articles</li>
-  </ol>
-</nav>
 
-<%= params[:days] %>
-<%= @articles.count %>
-<table id="popular">
-  <% @articles.each_with_index do |article, index| %>
-  <tr id="article_<%= index %>">
-    <td><%= image_tag article.photo %></td>
-    <td><%= link_to article.title, article.url, target: "_blank" %><br>
-    <%= article.abstract %>
-    </td>
-    <td><%= article.authors %></td>
-    <td><%= article.section %></td>
-    <td><%= article.published_date %></td>
-    <% if logged_in? %>
-      <td>
-        <%= form_for [current_user, @saved_article], url: user_saved_articles_path(current_user), html: {method: :update} do |f|%>
+<div class="">
+  <nav class="" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Most Viewed Articles</li>
+    </ol>
+  </nav>
+  <div class="">
+    <table>
+      <% @articles.each_with_index do |article| %>
+      <tr class="table-row">
+        <td class="table-photo"><%= image_tag article.photo %></td>
+        <td class="table-title"><%= link_to article.title, article.url, target: "_blank" %><br>
+          <%= article.abstract %>
+        </td>
+        <td class="table-authors"><%= article.authors %></td>
+        <td class="table-section"><%= article.section %></td>
+        <td class="table-date"><%= article.pretty_date %></td>
+        <% if logged_in? %>
+        <td class="table-button">
+          <%= form_for [current_user, @saved_article], url: user_saved_articles_path(current_user), html: {method: :update} do |f|%>
           <%= f.hidden_field :abstract, value: article.abstract %>
           <%= f.hidden_field :authors, value: article.authors%>
           <%= f.hidden_field :photo, value: article.photo %>
-          <%= f.hidden_field :published_date, value: article.published_date %>
+          <%= f.hidden_field :published_date, value: article.pretty_date %>
           <%= f.hidden_field :section, value: article.section %>
           <%= f.hidden_field :title, value: article.title%>
           <%= f.hidden_field :url, value: article.url %>
           <%= f.submit "Save"%>
+          <% end %>
+        </td>
         <% end %>
-      </td>
-    <% end %>
-  </tr>
-  <% end %>
-
-</table>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
