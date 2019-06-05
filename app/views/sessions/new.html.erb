@@ -1,25 +1,22 @@
-<div class="">
-  <div class="">
-    <div class="">
-      LOG IN
+<div class="form-page">
+  <div class="form-frame">
+    <div class="form-header">
+      <h1>Sign In</h1>
     </div>
-    <div class="form-group">
+    <div class="form-form">
       <%= form_tag login_path do %>
-        <div class="">
-          <%= text_field_tag :username, "", class:"form-control", "aria-describedby": "username field", placeholder: "Enter Username" %>
-        </div>
-        <div class="">
-          <%= password_field_tag :password, "", class: "form-control", "aria-describedby": "password field", placeholder: "Password" %>
-        </div>
-        <div class="">
-          <%= submit_tag "Log In", class: "btn btn-primary" %>
-        </div>
-      <% end %>
-      <div class="">
-        <p>
-          Don't have an account? <%= link_to "Register", new_user_path %> here
-        </p>
+      <div class="form-field">
+        <%= text_field_tag :username, "", class:"form-control", "aria-describedby": "username field", placeholder: "Username" %>
       </div>
+      <div class="form-field">
+        <%= password_field_tag :password, "", class: "form-control", "aria-describedby": "password field", placeholder: "Password" %>
+      </div>
+      <div class="form-field">
+        <%= submit_tag "Log In", class: "btn btn-primary btn-block" %>
+      </div>
+      <% end %>
+      <p>Don't have an account?</p>
+      <%= link_to "Register", new_user_path %>
     </div>
   </div>
 </div>

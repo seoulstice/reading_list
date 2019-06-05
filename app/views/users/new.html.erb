@@ -1,25 +1,25 @@
-<div class="">
-  <div class="card">
-    <div class="">
-      REGISTER
+<div class="form-page">
+  <div class="form-frame">
+    <div class="form-header">
+      <h1>Register</h1>
     </div>
-    <div class="form-group">
+    <div class="form-form">
       <%= form_for @user do |f| %>
-        <div class="">
-          <%= f.label :username %>
-          <%= f.text_field :username, class:"form-control", "aria-describedby": "username field", placeholder: "Jane Doe" %>
-          <%= f.label :password %>
-          <%= f.password_field :password, class: "form-control", "aria-describedby": "password field", placeholder: "Password" %>
-          <%= f.label :password_confirmation, "Password Confirmation"%>
-          <%= f.password_field :password_confirmation, required: true, class: "form-control", "aria-describedby": "password confirmation field", placeholder: "Password Confirmation" %>
+        <div class="form-field">
+          <%= f.text_field :username, class:"form-control", "aria-describedby": "username field", placeholder: "Username" %>
         </div>
-        <div class="">
-          <%= f.submit "Register", class: "btn btn-primary" %>
+        <div class="form-field">
+          <%= f.password_field :password, class: "form-control", "aria-describedby": "password field", placeholder: "Password" %>
+        </div>
+        <div class="form-field">
+          <%= f.password_field :password_confirmation, required: true, class: "form-control", "aria-describedby": "password confirmation field", placeholder: "Confirm Password" %>
+        </div>
+        <div class="form-field">
+          <%= f.submit "Register", class: "btn btn-primary btn-block" %>
         </div>
       <% end %>
-      <div class="">
-        <p>Already have an account? <%= link_to "Login", login_path %> here</p>
-      </div>
+      <p>Already have an account?<p>
+      <%= link_to "Sign In", login_path %>
     </div>
   </div>
 </div>
