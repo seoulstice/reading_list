@@ -20,12 +20,31 @@
 
 
 body {
-  // background-image: url('amador-loureiro-779-unsplash');
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  // background-attachment: fixed;
+
 }
 
-html {
-  height: 100%;
+#section-a {
+  min-height: 450px;
+  color: #FFF;
+  text-align: center;
+}
+
+#section-a .bg-image {
+  position: absolute;
+  background: #FFF url("markus-spiske-1438410-unsplash.jpg");
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+  width: 100%;
+  height: 450px;
+  z-index: -1;
+}
+
+#section-a h1 {
+  padding-top: 150px;
+  padding-bottom: 0;
+}
+
+#section-a .content-warp {
+  padding: 0 1.5em;
 }

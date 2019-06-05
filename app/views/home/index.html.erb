@@ -1,26 +1,28 @@
-<div class="">
-  <nav class="" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item active" aria-current="page">Home</li>
-    </ol>
-  </nav>
-  <div class="card">
-    <div class="">
-      <p>Search for Articles</p>
-    </div>
-    <div id="">
-      <p>Search Most Viewed Articles by Days</p>
+<div id="section-a">
+  <div class="bg-image"></div>
+  <div class="content-wrap">
+    <h1>Welcome to Reading List</h1>
+    <p>Search through the New York Times archives for the most viewed articles published within the last one, seven, or thirty day(s) or search for the most popular articles in your favorite section.  Sign up for a Reading List account and save articles to your own reading list.</p>
+  </div>
+</div>
+
+<div class="section-b">
+  <h2></h2>
+</div>
+
+<div class="section-c">
+
+</div>
+    <div >
+      Search for Articles
       <%= form_tag popular_path, method: :get do %>
-      <%= select_tag :days, options_for_select(day_choices) %>
+      <%= select_tag :days, options_for_select(day_choices), {class: "form-control"} %>
       <%= submit_tag "Submit" %>
-      <% end %>
+      <% end %> Day
     </div>
-    <div id="">
-      <p>Search Top Articles by Topic</p>
+    <div >
       <%= form_tag top_path, method: :get do %>
       <%= select_tag :section, options_for_select(section_choices) %>
       <%= submit_tag "Submit" %>
       <% end %>
     </div>
-  </div>\
-</div>
