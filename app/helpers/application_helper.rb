@@ -2,9 +2,9 @@ module ApplicationHelper
 
     def day_choices
       [
-        ["One", "1"],
-        ["Seven", "7"],
-        ["Thirty", "30"]
+        ["Last Day", "1"],
+        ["Last Seven Days", "7"],
+        ["Last Thirty Days", "30"]
       ]
     end
 
