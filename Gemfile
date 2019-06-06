@@ -46,6 +46,7 @@ group :development, :test do
   gem 'draper'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
+  gem "font-awesome-rails"
 end
 
 group :development do
