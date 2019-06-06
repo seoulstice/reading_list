@@ -1,31 +1,27 @@
-<div class="">
-  <div class="">
-    <table>
-      <% @articles.each_with_index do |article| %>
-      <tr class="table-row">
-        <td class="table-photo"><%= image_tag article.photo %></td>
-        <td class="table-title"><%= link_to article.title, article.url, target: "_blank" %><br>
-          <%= article.abstract %>
-        </td>
-        <td class="table-authors"><%= article.authors %></td>
-        <td class="table-section"><%= article.section %></td>
-        <td class="table-date"><%= article.pretty_date %></td>
+
+<table class="result-table">
+  <% @articles.each_with_index do |article| %>
+    <tr class="">
+      <td><%= image_tag article.photo %></td>
+      <td><%= link_to article.title, article.url, target: "_blank" %></td>
+      <td class="mobile-optimized"><%= article.abstract %></td>
+      <td><%= article.authors %></td>
+      <td class="mobile-optimized"><%= article.section %></td>
+      <td><%= article.pretty_date %></td>
+      <td>
         <% if logged_in? %>
-        <td class="table-button">
           <%= form_for [current_user, @saved_article], url: user_saved_articles_path(current_user), html: {method: :update} do |f|%>
-          <%= f.hidden_field :abstract, value: article.abstract %>
-          <%= f.hidden_field :authors, value: article.authors%>
-          <%= f.hidden_field :photo, value: article.photo %>
-          <%= f.hidden_field :published_date, value: article.pretty_date %>
-          <%= f.hidden_field :section, value: article.section %>
-          <%= f.hidden_field :title, value: article.title%>
-          <%= f.hidden_field :url, value: article.url %>
-          <%= f.submit "Save"%>
+            <%= f.hidden_field :abstract, value: article.abstract %>
+            <%= f.hidden_field :authors, value: article.authors%>
+            <%= f.hidden_field :photo, value: article.photo %>
+            <%= f.hidden_field :published_date, value: article.pretty_date %>
+            <%= f.hidden_field :section, value: article.section %>
+            <%= f.hidden_field :title, value: article.title%>
+            <%= f.hidden_field :url, value: article.url %>
+            <%= f.button '<i class="fa fa-save"></i> Save'.html_safe, class: "my-btn"%>
           <% end %>
-        </td>
-        <% end %>
-      </tr>
       <% end %>
-    </table>
-  </div>
-</div>
+      </td>
+    </tr>
+  <% end %>
+</table>
