@@ -1,41 +1,25 @@
+<p class="page-type">Saved Articles</p>
 
-    <table id="">
-      <% @unread_saved_articles.each do |unread_saved_article| %>
-      <tr>
-        <td><%= image_tag unread_saved_article.photo %></td>
-        <td><%= link_to unread_saved_article.title, unread_saved_article.url, target: "_blank" %><br>
-          <%= unread_saved_article.abstract %></td>
-          <td><%= unread_saved_article.authors %></td>
-          <td><%= unread_saved_article.section %></td>
-          <td><%= unread_saved_article.pretty_date %></td>
-          <td>
-            <%= form_for [current_user, unread_saved_article], url: user_saved_article_path(current_user, unread_saved_article), html: {method: :patch} do |f|   %>
-            <%= f.hidden_field :read, value: true %>
-            <%= f.submit "Mark as Read" %>
-            <% end %>
-          </td>
-          <td><%= link_to fa_icon("trash", text: "Delete"), user_saved_article_path(current_user, unread_saved_article), method: :delete %></td>
-        </tr>
-        <% end %>
-      </table>
-  </div>
-  <div class="">
-    <table id="">
-      <% @read_saved_articles.each do |read_saved_article| %>
-      <tr>
-        <td><%= image_tag read_saved_article.photo %></td>
-        <td><%= link_to read_saved_article.title, read_saved_article.url, target: "_blank" %><br>
-          <%= read_saved_article.abstract %></td>
-          <td><%= read_saved_article.authors %></td>
-          <td><%= read_saved_article.section %></td>
-          <td><%= read_saved_article.pretty_date %></td>
-          <td>
-            <%= form_for [current_user, read_saved_article], url: user_saved_article_path(current_user, read_saved_article), html: {method: :patch} do |f|   %>
-            <%= f.hidden_field :read, value: false %>
-            <%= f.submit "Mark as Unread" %>
-            <% end %>
-          </td>
-          <td><%= link_to fa_icon("trash", text: "Delete"), user_saved_article_path(current_user, read_saved_article), method: :delete %></td>
-        </tr>
-        <% end %>
-      </table>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <% @saved_articles.each do |saved_article| %>
+                    <div class="col-sm-6 col-md-4 article">
+                        <div class="thumbnail">
+                            <%= image_tag saved_article.photo, class: "card-img-top article-image" %>
+                            <div class="caption">
+                                <%= link_to saved_article.title, saved_article.url, target: "_blank", class: "title" %>
+                                <p class="abstract"><%= saved_article.abstract %></p>
+                                <p class="authors"><%= saved_article.authors %></p>
+                                <div class="save">
+                                    <%= link_to "Delete", user_saved_article_path(current_user, saved_article), method: :delete, class: "btn btn-danger article-btn" %>
+                                </div>
+                            </div>
+                      </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

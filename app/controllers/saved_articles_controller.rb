@@ -8,7 +8,7 @@ class SavedArticlesController < ApplicationController
   end
 
   def create
-    @saved_article = @user.saved_articles.new(saved_article_params.merge(read: false))
+    @saved_article = @user.saved_articles.create(saved_article_params)
     if @saved_article.save
       redirect_to user_saved_articles_path(@user)
     else
