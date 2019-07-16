@@ -1,0 +1,25 @@
+<p class="page-type">Saved Articles</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <% @saved_articles.each do |saved_article| %>
+                    <div class="col-sm-6 col-md-4 article">
+                        <div class="thumbnail">
+                            <%= image_tag saved_article.photo, class: "card-img-top article-image" %>
+                            <div class="caption">
+                                <%= link_to saved_article.title, saved_article.url, target: "_blank", class: "title" %>
+                                <p class="abstract"><%= saved_article.abstract %></p>
+                                <p class="authors"><%= saved_article.authors %></p>
+                                <div class="save">
+                                    <%= link_to "Delete", user_saved_article_path(current_user, saved_article), method: :delete, class: "btn btn-danger article-btn" %>
+                                </div>
+                            </div>
+                      </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

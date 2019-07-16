@@ -11,8 +11,6 @@ require 'webmock/rspec'
 require 'vcr'
 require 'database_cleaner'
 require 'capybara/rails'
-require 'capybara/rspec'
-require 'rack_session_access/capybara'
 
 VCR.configure do |config|
   config.cassette_library_dir = "spec/cassettes"

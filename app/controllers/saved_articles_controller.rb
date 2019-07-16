@@ -1,10 +1,16 @@
 class SavedArticlesController < ApplicationController
   before_action :set_user, only: [:create, :index, :destroy, :update]
 
+  def index
+    if logged_in?
+      @saved_articles = @user.saved_articles.all
+    end
+  end
+
   def create
-    @saved_article = @user.saved_articles.new(saved_article_params.merge(read: false))
+    @saved_article = @user.saved_articles.create(saved_article_params)
     if @saved_article.save
-      redirect_to root_path
+      redirect_to user_saved_articles_path(@user)
     else
       redirect_to root_path
     end
@@ -13,15 +19,8 @@ class SavedArticlesController < ApplicationController
   def destroy
     saved_article = SavedArticle.find(params[:id])
     saved_article.destroy
-    redirect_to root_path
+    redirect_to user_saved_articles_path(@user)
   end
-
-  def update
-    saved_article = SavedArticle.find(params[:id])
-    saved_article.update(saved_article_params)
-    redirect_to root_path
-  end
-
 
 end
 
@@ -32,5 +31,5 @@ end
   end
 
   def saved_article_params
-    params.require(:saved_article).permit(:abstract, :authors, :photo, :published_date, :section, :title, :url, :read)
+    params.require(:saved_article).permit(:abstract, :authors, :photo, :title, :url)
   end

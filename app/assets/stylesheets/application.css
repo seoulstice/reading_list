@@ -13,3 +13,174 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+hr {
+    border-color: white;
+    border-width: 3px;
+}
+
+.jumbotron {
+    background-image: url("./jellyfish.jpg");
+    background-size: cover;
+    padding-bottom: 200px;
+    color: white;
+}
+
+.bottom {
+    margin-top: 60px;
+}
+
+.dropdowns {
+    margin-top: 60px;
+}
+
+.form-btn {
+    margin-top: 15px;
+    background-color: #0068BB;
+    color: white;
+}
+
+.form-btn:hover {
+    background-color: green;
+    color: white;
+}
+
+.form-btn:active {
+    transform: translateY(2px);
+}
+
+
+.page-type {
+    margin-top: 15px;
+    margin-left: 15px;
+    color: #0068BB;
+    font-size: 18px;
+}
+.card-deck {
+    display: inline-block
+}
+
+.article {
+    margin-top: 20px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    position: relative
+}
+
+.caption {
+    margin-top: 10px;
+    padding: 10px 10px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.title:link {
+    color: black;
+    text-decoration: none;
+
+}
+
+.title:visited {
+    color: black;
+    text-decoration: none;
+
+}
+
+.title:hover {
+    color: #0068BB;
+    text-decoration: none;
+}
+
+.title:active {
+    color: green;
+    text-decoration: none;
+}
+
+
+.abstract {
+    font-size: 12px;
+    color: grey;
+}
+
+.authors {
+    font-size: 12px;
+}
+
+.save {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 15px;
+}
+
+.article-btn:active {
+    transform: translateY(2px);
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.user-form {
+    height: 500px;
+    width: 400px;
+    background-color: #FFFFFF;
+    text-align: center;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 5px;
+    box-shadow: 5px 10px 18px #242424;
+}
+
+.form-title {
+    margin-top: 20px;
+    font-size: 40px;
+    color: #000000;
+    font-weight: 700;
+}
+
+.form-field {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.form-words {
+    padding-left: 5px;
+    border: 1px solid #000000;
+}
+
+.form-bottom-text {
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.register-link:link {
+    color: #000000;
+    text-decoration: none;
+}
+.register-link:visited {
+    color: #000000;
+    text-decoration: none;
+}
+.register-link:hover {
+    color: #0068BB;
+    text-decoration: none;
+}
+.register-link:active {
+    color: green;
+    text-decoration: none;
+}
+
+.register-btn:active {
+    transform: translateY(2px);
+}
