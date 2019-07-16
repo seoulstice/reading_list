@@ -7,8 +7,4 @@ class ArticleDecorator < Draper::Decorator
     end.join(" ")
   end
 
-  def pretty_date
-    Date.parse(object.published_date).readable_inspect
-  end
-
 end

@@ -3,8 +3,6 @@ class TopArticle
               :title,
               :byline,
               :abstract,
-              :section,
-              :published_date,
               :photo
 
   def initialize(attributes)
@@ -12,8 +10,6 @@ class TopArticle
     @title = attributes[:title]
     @byline = attributes[:byline]
     @abstract = attributes[:abstract]
-    @section = attributes[:section]
-    @published_date = attributes[:published_date]
     if attributes[:multimedia].empty?
       @photo = "/assets/blank.png"
     else
