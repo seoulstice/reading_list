@@ -49,7 +49,9 @@ hr {
     color: white;
 }
 
-.form-btn:active { transform: translateY(2px) }
+.form-btn:active {
+    transform: translateY(2px);
+}
 
 
 .page-type {
@@ -118,7 +120,9 @@ hr {
     margin-right: 15px;
 }
 
-.article-btn:active { transform: translateY(2px) }
+.article-btn:active {
+    transform: translateY(2px);
+}
 
 .form-container {
     display: flex;
@@ -178,5 +182,5 @@ hr {
 }
 
 .register-btn:active {
-    transform: translateY(2px)
+    transform: translateY(2px);
 }
