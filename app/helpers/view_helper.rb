@@ -1,6 +1,6 @@
 module ViewHelper
 
-  def params_helper(params)
+  def convert_days(params)
     if params == "1"
       "Day"
     elsif params == "7"

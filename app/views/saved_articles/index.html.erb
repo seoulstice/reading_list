@@ -1,5 +1,4 @@
-<div class="">
-  <div class="">
+
     <table id="">
       <% @unread_saved_articles.each do |unread_saved_article| %>
       <tr>
@@ -15,7 +14,7 @@
             <%= f.submit "Mark as Read" %>
             <% end %>
           </td>
-          <td><%= button_to "Delete", user_saved_article_path(current_user, unread_saved_article), method: :delete %></td>
+          <td><%= link_to fa_icon("trash", text: "Delete"), user_saved_article_path(current_user, unread_saved_article), method: :delete %></td>
         </tr>
         <% end %>
       </table>
@@ -36,9 +35,7 @@
             <%= f.submit "Mark as Unread" %>
             <% end %>
           </td>
-          <td><%= button_to "Delete", user_saved_article_path(current_user, read_saved_article), method: :delete %></td>
+          <td><%= link_to fa_icon("trash", text: "Delete"), user_saved_article_path(current_user, read_saved_article), method: :delete %></td>
         </tr>
         <% end %>
       </table>
-  </div>
-</div>
