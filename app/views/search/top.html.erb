@@ -1,29 +1,36 @@
-<div class="">
-  <h3>Most Viewed Articles in the <%= params[:section].upcase %> Section</h3>
+<p class="page-type">Most Viewed Articles in the <%= params[:section].upcase %> Section</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <% @articles.each do |article| %>
+                    <div class="col-sm-6 col-md-4 article">
+                        <div class="thumbnail">
+                            <%= image_tag article.photo, class: "card-img-top article-image" %>
+                            <div class="caption">
+                                <%= link_to article.title, article.url, target: "_blank", class: "title" %>
+                                <p class="abstract"><%= article.abstract %></p>
+                                <p class="authors"><%= article.authors %></p>
+                                <div class="save">
+                                    <% if logged_in? %>
+                                        <%= form_for [current_user, @saved_article], url: user_saved_articles_path(current_user), html: {method: :update} do |f|%>
+                                            <%= f.hidden_field :abstract, value: article.abstract %>
+                                            <%= f.hidden_field :authors, value: article.authors%>
+                                            <%= f.hidden_field :photo, value: article.photo %>
+                                            <%= f.hidden_field :published_date, value: article.pretty_date %>
+                                            <%= f.hidden_field :section, value: article.section %>
+                                            <%= f.hidden_field :title, value: article.title%>
+                                            <%= f.hidden_field :url, value: article.url %>
+                                            <%= f.submit "Save", class: "btn btn-success article-btn"%>
+                                        <% end %>
+                                    <% end %>
+                                </div>
+                            </div>
+                      </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
 </div>
-<table class="result-table">
-  <% @articles.each_with_index do |article| %>
-    <tr class="">
-      <td><%= image_tag article.photo %></td>
-      <td><%= link_to article.title, article.url, target: "_blank" %></td>
-      <td class="mobile-optimized"><%= article.abstract %></td>
-      <td><%= article.authors %></td>
-      <td class="mobile-optimized"><%= article.section %></td>
-      <td><%= article.pretty_date %></td>
-      <td>
-        <% if logged_in? %>
-          <%= form_for [current_user, @saved_article], url: user_saved_articles_path(current_user), html: {method: :update} do |f|%>
-            <%= f.hidden_field :abstract, value: article.abstract %>
-            <%= f.hidden_field :authors, value: article.authors%>
-            <%= f.hidden_field :photo, value: article.photo %>
-            <%= f.hidden_field :published_date, value: article.pretty_date %>
-            <%= f.hidden_field :section, value: article.section %>
-            <%= f.hidden_field :title, value: article.title%>
-            <%= f.hidden_field :url, value: article.url %>
-            <%= f.button fa_icon("save", text: "Save"), class: "my-btn" %>
-          <% end %>
-      <% end %>
-      </td>
-    </tr>
-  <% end %>
-</table>

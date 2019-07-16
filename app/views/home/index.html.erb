@@ -3,25 +3,29 @@
         <hr class="my-4">
         <p class="lead">Create your own reading list of articles from the New York Times</p>
 </div>
-<div class="container">
-
-    <div id="section-b">
-        <div class="section-b-bg">
-            <div class="search-form" >
-                <p>Most Viewed Articles in the:</p>
+<div class="container bottom">
+    <div class="row justify-content-center">
+        <h4>Search the NYT Archives by Section or by Date</h4>
+    </div>
+    <div class="row justify-content-around dropdowns">
+        <div class="">
+            <div class="" >
+                <p>Most Viewed Articles in the</p>
                 <%= form_tag popular_path, method: :get do %>
-                <%= select_tag :days, options_for_select(day_choices) %>
-                <%= submit_tag "Submit" %>
-                <% end %>
-            </div>
-            <div class="search-form" >
-                <p>Most Viewed Articles by Section:</p>
-                <%= form_tag top_path, method: :get do %>
-                <%= select_tag :section, options_for_select(section_choices) %>
-                <%= submit_tag "Submit", class: "btn" %>
+                <%= select_tag :days, options_for_select(day_choices), class: "form-control" %>
+                <%= submit_tag "Submit", class: "btn form-btn" %>
                 <% end %>
             </div>
         </div>
-    </div>
+        <div class="">
+            <div class="" >
+                <p>Most Viewed Articles by Section</p>
+                <%= form_tag top_path, method: :get do %>
+                <%= select_tag :section, options_for_select(section_choices), class: "form-control" %>
+                <%= submit_tag "Submit", class: "btn form-btn" %>
+                <% end %>
+            </div>
 
+        </div>
+    </div>
 </div>

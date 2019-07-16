@@ -13,8 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
 hr {
     border-color: white;
+    border-width: 3px;
 }
 
 .jumbotron {
@@ -23,3 +29,92 @@ hr {
     padding-bottom: 200px;
     color: white;
 }
+
+.bottom {
+    margin-top: 60px;
+}
+
+.dropdowns {
+    margin-top: 60px;
+}
+
+.form-btn {
+    margin-top: 15px;
+    background-color: #0068BB;
+    color: white;
+}
+
+.form-btn:hover {
+    background-color: green;
+    color: white;
+}
+
+.form-btn:active { transform: translateY(2px) }
+
+
+.page-type {
+    margin-top: 15px;
+    margin-left: 15px;
+    color: #0068BB;
+    font-size: 18px;
+}
+.card-deck {
+    display: inline-block
+}
+
+.article {
+    margin-top: 20px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    position: relative
+}
+
+.caption {
+    margin-top: 10px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.title:link {
+    color: black;
+    text-decoration: none;
+
+}
+
+.title:visited {
+    color: black;
+    text-decoration: none;
+
+}
+
+.title:hover {
+    color: #0068BB;
+    text-decoration: none;
+}
+
+.title:active {
+    color: green;
+    text-decoration: none;
+}
+
+
+.abstract {
+    font-size: 12px;
+    color: grey;
+}
+
+.authors {
+    font-size: 12px;
+}
+
+.save {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 15px;
+}
+
+.article-btn:active { transform: translateY(2px) }
