@@ -119,3 +119,60 @@ hr {
 }
 
 .article-btn:active { transform: translateY(2px) }
+
+.form-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.user-form {
+    height: 500px;
+    width: 400px;
+    background-color: #FFFFFF;
+    text-align: center;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 5px;
+    box-shadow: 5px 10px 18px #242424;
+}
+
+.form-title {
+    margin-top: 20px;
+    font-size: 40px;
+    color: #000000;
+    font-weight: 700;
+}
+
+.form-field {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.form-words {
+    padding-left: 5px;
+    border: 1px solid #000000;
+}
+
+.form-bottom-text {
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.register-link:link {
+    color: #000000;
+    text-decoration: none;
+}
+.register-link:visited {
+    color: #000000;
+    text-decoration: none;
+}
+.register-link:hover {
+    color: #0068BB;
+    text-decoration: none;
+}
+.register-link:active {
+    color: green;
+    text-decoration: none;
+}
