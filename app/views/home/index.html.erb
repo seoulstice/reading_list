@@ -1,26 +1,27 @@
-<div id="section-a">
-  <div class="bg-image"></div>
-  <div class="content-wrap">
-    <h1>Welcome to Reading List</h1>
-    <p>Search the New York Times archives for the most viewed articles published within the last one, seven, or thirty day(s) or search for the most popular articles in your favorite section.  Sign up for a Reading List account and save articles to your own reading list.</p>
-  </div>
+<div class="jumbotron">
+        <h1 class="display-3">Reading List</h1>
+        <hr class="my-4">
+        <p class="lead">Create your own reading list of articles from the New York Times</p>
 </div>
+<div class="container">
 
-<div id="section-b">
-  <div class="section-b-bg">
-  <div class="search-form" >
-    <p>Most Viewed Articles in the:</p>
-    <%= form_tag popular_path, method: :get do %>
-    <%= select_tag :days, options_for_select(day_choices) %>
-    <%= submit_tag "Submit" %>
-    <% end %>
-  </div>
-  <div class="search-form" >
-    <p>Most Viewed Articles by Section:</p>
-    <%= form_tag top_path, method: :get do %>
-    <%= select_tag :section, options_for_select(section_choices) %>
-    <%= submit_tag "Submit", class: "btn" %>
-    <% end %>
-  </div>
-</div>
+    <div id="section-b">
+        <div class="section-b-bg">
+            <div class="search-form" >
+                <p>Most Viewed Articles in the:</p>
+                <%= form_tag popular_path, method: :get do %>
+                <%= select_tag :days, options_for_select(day_choices) %>
+                <%= submit_tag "Submit" %>
+                <% end %>
+            </div>
+            <div class="search-form" >
+                <p>Most Viewed Articles by Section:</p>
+                <%= form_tag top_path, method: :get do %>
+                <%= select_tag :section, options_for_select(section_choices) %>
+                <%= submit_tag "Submit", class: "btn" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
 </div>

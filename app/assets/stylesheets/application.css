@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+hr {
+    border-color: white;
+}
+
+.jumbotron {
+    background-image: url("./jellyfish.jpg");
+    background-size: cover;
+    padding-bottom: 200px;
+    color: white;
+}
