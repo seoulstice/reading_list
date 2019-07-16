@@ -176,3 +176,7 @@ hr {
     color: green;
     text-decoration: none;
 }
+
+.register-btn:active {
+    transform: translateY(2px)
+}
