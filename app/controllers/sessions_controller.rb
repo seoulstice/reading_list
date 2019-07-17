@@ -7,17 +7,20 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
-      log_in(user)
-      redirect_to root_path
+        log_in(user)
+        redirect_to root_path
+        flash[:success] = "Welcome back to Reading List, #{user.username}!"
     else
-      render :new
+        flash[:danger] = "Sorry, your login credentials did not work."
+        render :new
     end
   end
 
-  def destroy
-    log_out
-    redirect_to "/"
-  end
+    def destroy
+        log_out
+        redirect_to "/"
+        flash[:danger] = "See you later!"
+    end
 
 
 

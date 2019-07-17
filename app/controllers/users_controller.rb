@@ -9,8 +9,9 @@ class UsersController < ApplicationController
     if @user.save
       log_in(@user)
       redirect_to root_path
+      flash[:success] = "Welcome to Reading List!"
     else
-      flash.now[:alert] = "Sorry, an account with that username already exists."
+      flash[:danger] = "Sorry, an account with that username already exists."
       render :new
     end
   end

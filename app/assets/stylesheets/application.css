@@ -184,3 +184,10 @@ hr {
 .register-btn:active {
     transform: translateY(2px);
 }
+
+.top-alert {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 99999;
+}
