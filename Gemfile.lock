@@ -246,6 +246,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.7)
   rails (~> 5.1.7)
+  rake
   rspec-rails
   sass-rails (~> 5.0)
   shoulda-matchers (~> 3.1)
