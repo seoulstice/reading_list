@@ -31,13 +31,13 @@ RSpec.describe "Visitor Top Articles Search" do
                                                       'Travel',
                                                       'Upshot',
                                                       'World'])
-        within(:css, "div#top_select") do
+        within(:css, "div#section") do
           select "Theater", from: :section
           click_on "Submit"
         end
 
         expect(current_path).to eq(top_path)
-        expect(page).to have_css("tr#article_0") do
+        expect(page).to have_css("div.article") do
           without_tag("a", text: "Save")
         end
     end
