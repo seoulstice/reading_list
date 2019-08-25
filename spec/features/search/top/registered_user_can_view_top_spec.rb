@@ -6,19 +6,16 @@ RSpec.describe "Registered User Top Articles Search" do
       user = create(:user)
       page.set_rack_session(user_id: user.id)
 
-      visit root_path
-      within(:css, "div#top_select") do
+      page.visit root_path
+      within(:css, "div#section") do
         select "Books", from: :section
         click_on "Submit"
       end
-
+      
       expect(current_path).to eq(top_path)
-      expect(page).to have_css("tr#article_0") do
+      expect(page).to have_css("div.article") do
         with_tag("a", text: "Save")
       end
-
-
-
 
     end
   end
