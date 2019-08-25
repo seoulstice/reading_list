@@ -5,14 +5,14 @@ RSpec.describe "User logout" do
     user = create(:user)
 
     visit root_path
-    click_link "Log In"
+    click_link "Login"
     fill_in "username", with: user.username
     fill_in "password", with: user.password
     click_button "Log In"
-    click_link "Log Out"
+    click_link "Logout"
 
     expect(current_path).to eq(root_path)
-    expect(page).to have_link("Register")
-    expect(page).to have_link("Log In")
+    expect(page).to have_link("Login")
+    expect(page).to have_content("See you later!")
   end
 end
